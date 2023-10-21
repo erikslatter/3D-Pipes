@@ -12,8 +12,7 @@ worldBounds = Vector3(25, 25, 25)
 pipeMaterial = ExtResource("2_vp406")
 pipeCountToTriggerColorChange = 10
 
-[node name="PipeSegment A" parent="." node_paths=PackedStringArray("pipeInlet") instance=ExtResource("2_1mt7f")]
-pipeInlet = NodePath(".")
+[node name="PipeSegment A" parent="." instance=ExtResource("2_1mt7f")]
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.085

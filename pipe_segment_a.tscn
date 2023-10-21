@@ -1,17 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfc7dmfnuoe8t"]
+[gd_scene load_steps=4 format=3 uid="uid://dfc7dmfnuoe8t"]
 
-[ext_resource type="Script" path="res://PipeSegment.gd" id="1_ek62a"]
 [ext_resource type="Material" uid="uid://bqlhy2hs63vmu" path="res://pipe_mat.tres" id="2_10oo2"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pm3r1"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_rr1uf"]
 
-[node name="PipeSegment A" type="Node3D" node_paths=PackedStringArray("pipeInlet", "pipeOutlet")]
+[node name="PipeSegment A" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-script = ExtResource("1_ek62a")
-pipeInlet = NodePath("PipeInlet")
-pipeOutlet = NodePath("PipeOutlet")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
