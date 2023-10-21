@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfc7dmfnuoe8t"]
+
+[ext_resource type="Script" path="res://PipeSegment.gd" id="1_ek62a"]
+[ext_resource type="Material" uid="uid://bqlhy2hs63vmu" path="res://pipe_mat.tres" id="2_10oo2"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pm3r1"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_rr1uf"]
+
+[node name="PipeSegment A" type="Node3D" node_paths=PackedStringArray("pipeInlet", "pipeOutlet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+script = ExtResource("1_ek62a")
+pipeInlet = NodePath("PipeInlet")
+pipeOutlet = NodePath("PipeOutlet")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+material_override = ExtResource("2_10oo2")
+mesh = SubResource("CylinderMesh_pm3r1")
+
+[node name="PipeOutlet" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="PipeInlet" type="Node3D" parent="."]
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+material_override = ExtResource("2_10oo2")
+mesh = SubResource("SphereMesh_rr1uf")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000694752, 2, -0.00596321)
+material_override = ExtResource("2_10oo2")
+mesh = SubResource("SphereMesh_rr1uf")

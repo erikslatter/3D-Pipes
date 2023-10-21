@@ -1,0 +1,11 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1697927698
+icon.svg::CompressedTexture2D::8701782313167017099::1697732902::1697732908::1::::<><>::
+PipeSegment.gd::GDScript::-1::1697733375::0::1::::<>Node3D<>::
+PipeSpawner.gd::GDScript::-1::1697927331::0::1::::<>Node3D<>::
+pipe_segment_a2.tscn::PackedScene::8666235482543430059::1697927693::0::1::::<><>::res://PipeSegment.gd
+pipe_segment_a.tscn::PackedScene::7516283964549993237::1697927693::0::1::::<><>::res://PipeSegment.gd
+pipe_segment_b.tscn::PackedScene::4831118127169572404::1697927693::0::1::::<><>::res://PipeSegment.gd
+pipe_segment_c.tscn::PackedScene::2871102388180030431::1697927693::0::1::::<><>::res://PipeSegment.gd
+World.tscn::PackedScene::2451447944302956477::1697927693::0::1::::<><>::res://PipeSpawner.gd<>uid://dfc7dmfnuoe8t::::res://pipe_segment_a.tscn
+::res://PipeSegments/::1697927557
