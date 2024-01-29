@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Pipe" load_steps=2 format=3 uid="uid://hmdkv2pybl0e"]
+
+[ext_resource type="Script" path="res://Pipe.gd" id="1_pfhfu"]
+
+[resource]
+script = ExtResource("1_pfhfu")
+inlet = Vector3(0, -1, 0)
+outlet = Vector3(1, 0, 0)
+prefabPath = "res://pipe_segment_b.tscn"

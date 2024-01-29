@@ -1,34 +1,41 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba6q8v3t68dvp"]
+[gd_scene load_steps=7 format=3 uid="uid://ba6q8v3t68dvp"]
 
-[ext_resource type="Script" path="res://PipeSpawner.gd" id="1_a3up0"]
+[ext_resource type="Script" path="res://PipeSpawnerSmart.gd" id="1_l2r5q"]
 [ext_resource type="PackedScene" uid="uid://dfc7dmfnuoe8t" path="res://pipe_segment_a.tscn" id="2_1mt7f"]
-[ext_resource type="Material" uid="uid://bqlhy2hs63vmu" path="res://pipe_mat.tres" id="2_vp406"]
+[ext_resource type="Resource" uid="uid://brumah82pdq4" path="res://PipeSegments/pipe_a.tres" id="2_ru68f"]
+[ext_resource type="Resource" uid="uid://hmdkv2pybl0e" path="res://PipeSegments/pipe_b.tres" id="3_voatw"]
 
 [sub_resource type="Environment" id="Environment_nxued"]
 background_mode = 1
 
-[node name="World" type="Node3D" node_paths=PackedStringArray("previousPipe")]
-script = ExtResource("1_a3up0")
-previousPipe = NodePath("PipeSegment A")
-pipeVariants = Array[String](["pipe_segment_a.tscn", "pipe_segment_b.tscn", "pipe_segment_c.tscn"])
-worldBounds = Vector3(25, 25, 25)
-pipeMaterial = ExtResource("2_vp406")
-pipeCountToTriggerColorChange = 75
+[sub_resource type="BoxMesh" id="BoxMesh_jm0bs"]
+
+[node name="World" type="Node3D"]
+script = ExtResource("1_l2r5q")
+gridSize = 20
+pipeVariants = Array[Resource("res://Pipe.gd")]([ExtResource("2_ru68f"), ExtResource("3_voatw")])
 
 [node name="PipeSegment A" parent="." instance=ExtResource("2_1mt7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18, 0)
+visible = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.085
+wait_time = 0.465
+autostart = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.756287, 0, 0.65424, 0, 1, 0, -0.65424, 0, 0.756287, 13.5322, 1.075, 20.3076)
+transform = Transform3D(-0.683069, 0, -0.730354, 0, 1, 0, 0.730354, 0, -0.683069, -10.6747, 12.075, -7.67502)
 fov = 95.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_nxued")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 10, 10, 10)
+visible = false
+mesh = SubResource("BoxMesh_jm0bs")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

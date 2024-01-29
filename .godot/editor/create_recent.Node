@@ -1,9 +1,9 @@
+CSGMesh3D
 ColorRect
 CanvasLayer
 Panel
 Control
 WorldEnvironment
-CSGMesh3D
 CSGSphere3D
 CollisionShape3D
 Area3D

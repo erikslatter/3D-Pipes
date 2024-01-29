@@ -1,8 +1,11 @@
 res://World.tscn
 res://PipeSpawner.gd
+res://pipe_mat.tres
 res://pixel_dissolve.gdshader
-res://pixel_dissolve.tres
 res://pipe_segment_b.tscn
 res://pipe_segment_c.tscn
 res://pipe_segment_a.tscn
-res://pipe_mat.tres
+res://PipeSpawnerSmart.gd
+res://Pipe.gd
+res://PipeSegments/pipe_a.tres
+res://PipeSegments/pipe_b.tres
