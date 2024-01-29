@@ -43,8 +43,3 @@ mesh = SubResource("SphereMesh_svo5l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0)
 material_override = ExtResource("2_7l4pt")
 mesh = SubResource("SphereMesh_svo5l")
-
-[node name="CSGMesh3D7" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-material_override = ExtResource("2_7l4pt")
-mesh = SubResource("SphereMesh_svo5l")

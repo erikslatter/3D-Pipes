@@ -20,10 +20,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 [node name="PipeInlet" type="Node3D" parent="."]
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+visible = false
 material_override = ExtResource("2_10oo2")
 mesh = SubResource("SphereMesh_rr1uf")
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000694752, 2, -0.00596321)
+visible = false
 material_override = ExtResource("2_10oo2")
 mesh = SubResource("SphereMesh_rr1uf")

@@ -24,6 +24,11 @@ func _pipeStep():
 	var instanced_pipe = variantScene.instantiate()
 	add_child(instanced_pipe)
 	
+	for child in instanced_pipe.get_children():
+		if child is GeometryInstance3D:
+			print("found GeometryInstance3D in instanced pipe, swapping mat")
+			child.material_override = pipeMaterial
+	
 	# Connect pipe inlet to previous pipe outlet (position + rotation)
 	instanced_pipe.global_transform = previousPipe.global_transform * \
 								previousPipe.get_node('PipeOutlet').transform *\
@@ -41,8 +46,12 @@ func _pipeStep():
 		pipeCount += 1
 		
 		if (pipeCount > pipeCountToTriggerColorChange):
-			pipeMaterial.set_albedo(Color(randf(),randf(),randf()))
+			print ("SWAPPING PIPE COLORS")
+			var newMat = pipeMaterial.duplicate(true)
+			newMat.albedo_color = (Color(randf(),randf(),randf()))
+			pipeMaterial = newMat
 			pipeCount=0
+			
 		$Timer.start()
 		return 
 	elif recursions < recursionLimit:
@@ -55,4 +64,8 @@ func _pipeStep():
 		
 	
 func _on_timer_timeout():
+	#TODO - Separate spawn points for different colored pipes to get screen coverage faster
+	#TODO - Make it run for a certain amount of time before dissolving and restarting, as a complete loop
+	#TODO - Pixelate-to-black dissolve shader for transitions
+	#TODO - Export to Wallpaper Engine and put on Steam Workshop
 	_pipeStep()

@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ch604u5nnvdol"]
+
+[ext_resource type="Shader" path="res://pixel_dissolve.gdshader" id="1_f8p2y"]
+
+[resource]
+shader = ExtResource("1_f8p2y")
+shader_parameter/size = Vector2(-0.125, 2.5)

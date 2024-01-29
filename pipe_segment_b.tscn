@@ -10,31 +10,21 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, -0.5, 0)
 material_override = ExtResource("2_xwlnu")
 mesh = SubResource("CylinderMesh_pm3r1")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 0, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 1, 0)
 material_override = ExtResource("2_xwlnu")
 mesh = SubResource("CylinderMesh_pm3r1")
 
 [node name="PipeOutlet" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2, 0, 0)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2, 1, 0)
 
 [node name="PipeInlet" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
-material_override = ExtResource("2_xwlnu")
-mesh = SubResource("SphereMesh_svo5l")
-
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-material_override = ExtResource("2_xwlnu")
-mesh = SubResource("SphereMesh_svo5l")
-
-[node name="CSGMesh3D5" type="CSGMesh3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 material_override = ExtResource("2_xwlnu")
 mesh = SubResource("SphereMesh_svo5l")
