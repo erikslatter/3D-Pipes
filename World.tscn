@@ -8,19 +8,19 @@
 script = ExtResource("1_a3up0")
 previousPipe = NodePath("PipeSegment Start")
 pipeVariants = Array[String](["pipe_segment_a.tscn", "pipe_segment_b.tscn", "pipe_segment_c.tscn"])
-worldBounds = Vector3(25, 25, 25)
+worldBounds = Vector3(40, 20, 20)
 startingPipeMaterial = ExtResource("2_vp406")
-pipeCountToTriggerColorChange = 10
+pipeCountToTriggerColorChange = 50
 
 [node name="PipeSegment Start" parent="." instance=ExtResource("3_lejhh")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.085
+wait_time = 0.05
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.756287, 0, 0.65424, 0, 1, 0, -0.65424, 0, 0.756287, 9.14687, 1.075, 15.2382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
