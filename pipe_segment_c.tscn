@@ -1,6 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://40062wtrfnu"]
-
-[ext_resource type="Material" uid="uid://bqlhy2hs63vmu" path="res://pipe_mat.tres" id="2_7l4pt"]
+[gd_scene load_steps=3 format=3 uid="uid://40062wtrfnu"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_pm3r1"]
 
@@ -10,12 +8,10 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-material_override = ExtResource("2_7l4pt")
 mesh = SubResource("CylinderMesh_pm3r1")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 1, 0)
-material_override = ExtResource("2_7l4pt")
 mesh = SubResource("CylinderMesh_pm3r1")
 
 [node name="PipeOutlet" type="Node3D" parent="."]
@@ -26,25 +22,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CSGMesh3D3" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-material_override = ExtResource("2_7l4pt")
 mesh = SubResource("SphereMesh_svo5l")
 
 [node name="CSGMesh3D4" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
-material_override = ExtResource("2_7l4pt")
 mesh = SubResource("CylinderMesh_pm3r1")
 
 [node name="CSGMesh3D5" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 0)
-material_override = ExtResource("2_7l4pt")
 mesh = SubResource("SphereMesh_svo5l")
 
 [node name="CSGMesh3D6" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 0)
-material_override = ExtResource("2_7l4pt")
 mesh = SubResource("SphereMesh_svo5l")
 
 [node name="CSGMesh3D7" type="CSGMesh3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-material_override = ExtResource("2_7l4pt")
 mesh = SubResource("SphereMesh_svo5l")

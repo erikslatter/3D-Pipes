@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://0fb4mhaj80b4"]
+
+[node name="PipeSegment Start" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="PipeOutlet" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="PipeInlet" type="Node3D" parent="."]

@@ -3,14 +3,17 @@ extends Node3D
 @export var previousPipe:Node3D
 @export var pipeVariants:Array[String]
 @export var worldBounds:Vector3
-@export var pipeMaterial:StandardMaterial3D
+@export var startingPipeMaterial:StandardMaterial3D
 @export var pipeCountToTriggerColorChange:int
 var recursionLimit:int = 10
 
 var recursions:int = 0
 var pipeCount = 0
+var pipeColor:Color
+var pipeMaterial:StandardMaterial3D
 
 func _ready():
+	_changeColor()
 	$Timer.start()
 	
 func _pipeStep():
@@ -35,24 +38,36 @@ func _pipeStep():
 	# Validation - can I place this here? Otherwise, try again
 	if (instanced_pipe.get_node('PipeOutlet').global_transform.origin.x < worldBounds.x && instanced_pipe.get_node('PipeOutlet').global_transform.origin.x > -worldBounds.x) && (instanced_pipe.get_node('PipeOutlet').global_transform.origin.y < worldBounds.y && instanced_pipe.get_node('PipeOutlet').global_transform.origin.y > -worldBounds.y) && (instanced_pipe.get_node('PipeOutlet').global_transform.origin.z < worldBounds.z && instanced_pipe.get_node('PipeOutlet').global_transform.origin.z > -worldBounds.z):
 		previousPipe = instanced_pipe
-		print("Placed pipe!")
+		print("pipe placed")
 		# reset so each 'stuck' situation can try to recur 10 times
 		recursions = 0
 		pipeCount += 1
 		
 		if (pipeCount > pipeCountToTriggerColorChange):
-			pipeMaterial.set_albedo(Color(randf(),randf(),randf()))
-			pipeCount=0
+			_changeColor()
+			
+		for i in instanced_pipe.get_child_count():
+			var child = instanced_pipe.get_child(i)
+			if child is CSGMesh3D:
+				child.set_material(pipeMaterial)
+		
 		$Timer.start()
 		return 
 	elif recursions < recursionLimit:
-		print("Self-solving boundary issue...")
+		print("self-solving boundary issue...")
 		instanced_pipe.queue_free()
 		recursions+= 1
 		return _pipeStep()
 	else:
-		print("Limit reached - no more placements possible")
+		print("limit reached - no more placements possible")
 		
 	
 func _on_timer_timeout():
 	_pipeStep()
+	
+func _changeColor():
+	var newMat = startingPipeMaterial.duplicate()
+	newMat.albedo_color = Color(randf(),randf(),randf())
+	pipeMaterial = newMat
+	pipeCount = 0
+	print("color change completed")
