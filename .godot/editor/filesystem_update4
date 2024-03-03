@@ -1,5 +1,2 @@
 res://World.tscn
 res://PipeSpawner.gd
-res://pipe_segment_b.tscn
-res://pipe_segment_c.tscn
-res://pipe_segment_a.tscn
