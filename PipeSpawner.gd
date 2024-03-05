@@ -5,10 +5,12 @@ extends Node3D
 @export var worldBounds:Vector3
 @export var startingPipeMaterial:StandardMaterial3D
 @export var pipeCountToTriggerColorChange:int
+@export var pipeCountToTriggerRestart:int
 var recursionLimit:int = 10
 
 var recursions:int = 0
 var pipeCount = 0
+var totalPipeCount = 0
 var pipeColor:Color
 var pipeMaterial:StandardMaterial3D
 
@@ -17,6 +19,9 @@ func _ready():
 	$Timer.start()
 	
 func _pipeStep():
+	if totalPipeCount > pipeCountToTriggerRestart:
+		print("Total pipe count:", totalPipeCount, "restart max:", pipeCountToTriggerRestart)
+		get_tree().reload_current_scene()
 	# Choose variant randomly & instantiate it
 	var variantIndex = randi() % (pipeVariants.size()-1)
 	# If we have >1 recursion (problem solving 'mode'), unlock the U-turn pipe
@@ -38,10 +43,11 @@ func _pipeStep():
 	# Validation - can I place this here? Otherwise, try again
 	if (instanced_pipe.get_node('PipeOutlet').global_transform.origin.x < worldBounds.x && instanced_pipe.get_node('PipeOutlet').global_transform.origin.x > -worldBounds.x) && (instanced_pipe.get_node('PipeOutlet').global_transform.origin.y < worldBounds.y && instanced_pipe.get_node('PipeOutlet').global_transform.origin.y > -worldBounds.y) && (instanced_pipe.get_node('PipeOutlet').global_transform.origin.z < worldBounds.z && instanced_pipe.get_node('PipeOutlet').global_transform.origin.z > -worldBounds.z):
 		previousPipe = instanced_pipe
-		print("pipe placed")
+		print("pipe placed. total pipe count:", totalPipeCount)
 		# reset so each 'stuck' situation can try to recur 10 times
 		recursions = 0
 		pipeCount += 1
+		totalPipeCount += 1
 		
 		if (pipeCount > pipeCountToTriggerColorChange):
 			_changeColor()

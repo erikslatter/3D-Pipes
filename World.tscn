@@ -12,45 +12,10 @@ previousPipe = NodePath(".")
 pipeVariants = Array[String](["pipe_segment_a.tscn", "pipe_segment_b.tscn", "pipe_segment_c.tscn"])
 worldBounds = Vector3(40, 20, 20)
 startingPipeMaterial = ExtResource("2_vp406")
-pipeCountToTriggerColorChange = 50
+pipeCountToTriggerColorChange = 100
+pipeCountToTriggerRestart = 1000
 
 [node name="Timer" type="Timer" parent="PipeSegment Start"]
-wait_time = 0.085
-
-[node name="PipeSegment Start2" parent="." node_paths=PackedStringArray("previousPipe") instance=ExtResource("3_lejhh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98767, -1, 11.2979)
-script = ExtResource("1_a3up0")
-previousPipe = NodePath("../PipeSegment Start")
-pipeVariants = Array[String](["pipe_segment_a.tscn", "pipe_segment_b.tscn", "pipe_segment_c.tscn"])
-worldBounds = Vector3(40, 20, 20)
-startingPipeMaterial = ExtResource("2_vp406")
-pipeCountToTriggerColorChange = 50
-
-[node name="Timer" type="Timer" parent="PipeSegment Start2"]
-wait_time = 0.085
-
-[node name="PipeSegment Start3" parent="." node_paths=PackedStringArray("previousPipe") instance=ExtResource("3_lejhh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98767, -1, -22.6437)
-script = ExtResource("1_a3up0")
-previousPipe = NodePath("../PipeSegment Start")
-pipeVariants = Array[String](["pipe_segment_a.tscn", "pipe_segment_b.tscn", "pipe_segment_c.tscn"])
-worldBounds = Vector3(40, 20, 20)
-startingPipeMaterial = ExtResource("2_vp406")
-pipeCountToTriggerColorChange = 50
-
-[node name="Timer" type="Timer" parent="PipeSegment Start3"]
-wait_time = 0.085
-
-[node name="PipeSegment Start4" parent="." node_paths=PackedStringArray("previousPipe") instance=ExtResource("3_lejhh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.6176, -1, 0.46722)
-script = ExtResource("1_a3up0")
-previousPipe = NodePath("../PipeSegment Start")
-pipeVariants = Array[String](["pipe_segment_a.tscn", "pipe_segment_b.tscn", "pipe_segment_c.tscn"])
-worldBounds = Vector3(40, 20, 20)
-startingPipeMaterial = ExtResource("2_vp406")
-pipeCountToTriggerColorChange = 50
-
-[node name="Timer" type="Timer" parent="PipeSegment Start4"]
 wait_time = 0.085
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -60,6 +25,3 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 10, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
 
 [connection signal="timeout" from="PipeSegment Start/Timer" to="PipeSegment Start" method="_on_timer_timeout"]
-[connection signal="timeout" from="PipeSegment Start2/Timer" to="PipeSegment Start2" method="_on_timer_timeout"]
-[connection signal="timeout" from="PipeSegment Start3/Timer" to="PipeSegment Start3" method="_on_timer_timeout"]
-[connection signal="timeout" from="PipeSegment Start4/Timer" to="PipeSegment Start4" method="_on_timer_timeout"]
